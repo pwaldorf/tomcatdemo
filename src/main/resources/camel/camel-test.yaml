@@ -1,0 +1,9 @@
+- route:
+    id: testdata
+    description: test data producer    
+    from:
+      uri: 'timer://foo?period=5000'
+      steps:
+        - setBody:
+            constant: 'Hello World Again!'
+        - log: 'Body ${body}'        
