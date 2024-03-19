@@ -3,7 +3,8 @@
         xmlns:context="http://www.springframework.org/schema/context"
         xmlns:mvc="http://www.springframework.org/schema/mvc"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:tx="http://www.springframework.org/schema/tx"
+        xmlns:tx="http://www.springframework.org/schema/tx"       
+        xmlns:camel="http://camel.apache.org/schema/spring"
         xsi:schemaLocation="
          http://www.springframework.org/schema/tx
          http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
@@ -20,5 +21,12 @@
     <mvc:annotation-driven />
     <tx:annotation-driven transaction-manager="txManager" />
     
+    <camel:camelContext>
+        <!-- <camel:contextScan/> -->
+        <camel:packageScan>
+            <camel:package>com.pw.routes</camel:package>
+            <camel:includes>**.*</camel:includes>
+        </camel:packageScan>
+    </camel:camelContext>    
     
 </beans>

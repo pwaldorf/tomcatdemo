@@ -86,18 +86,24 @@
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-bean</artifactId>          
     </dependency>
+    <!--
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-spring-main</artifactId>            
-    </dependency>
+    </dependency>    
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-spring-xml</artifactId>      
-    </dependency>
+      <artifactId>camel-servlet</artifactId>           
+    </dependency>    
+    -->
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-java-joor-dsl</artifactId>      
     </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-spring-xml</artifactId>      
+    </dependency>    
     <dependency>
       <groupId>org.apache.camel</groupId>
       <artifactId>camel-xml-io-dsl</artifactId>      
@@ -108,19 +114,15 @@
     </dependency>
     <dependency>
       <groupId>org.apache.camel</groupId>
-      <artifactId>camel-servlet</artifactId>           
-    </dependency>
-    <dependency>
-      <groupId>org.apache.camel</groupId>
       <artifactId>camel-jms</artifactId>           
     </dependency>
-
+        
     <dependency>
       <groupId>jakarta.jms</groupId>
       <artifactId>jakarta.jms-api</artifactId>           
       <version>3.1.0</version>
     </dependency>
-
+    
     <!-- Log4j dependencies -->
 		<!-- logging -->
     <dependency>
