@@ -1,5 +1,13 @@
 package com.pw.routes;
 
+/*
+ *
+ *   Loading Routes from from the classpath when using spring managed camelcontext
+ *
+ *   This will load from contextScan, packageScan and DefaultCamelContext
+ * 
+ */
+
 import javax.annotation.PostConstruct;
 
 import org.apache.camel.CamelContext;
@@ -8,28 +16,19 @@ import org.apache.camel.impl.engine.DefaultResourceResolvers;
 import org.apache.camel.spi.Resource;
 import org.apache.camel.spi.RoutesLoader;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-
-//@Component
-public class RouteLoader { //} implements CamelContextAware {
+@Component
+public class RouteLoaderFromConfig {
 
     @Autowired
     private CamelContext camelContext;
 
-    // @Override
-    // public CamelContext getCamelContext() {
-    //     return camelContext;
-    // }
-
-    // @Override
-    // public void setCamelContext(CamelContext camelContext) {
-    //     this.camelContext = camelContext;
-    // }
-
 
     @PostConstruct
     void loadRoutes() {
-        loadRoute("MyRoutesLoader.java");
+        System.out.println("Loading from RouteLoaderFromConfig");
+        loadRoute("camel/TestRouteJavaConfig.java");
     }
 
     private void loadRoute(String name) {

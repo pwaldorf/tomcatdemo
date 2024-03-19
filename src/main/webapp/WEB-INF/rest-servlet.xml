@@ -21,12 +21,15 @@
     <mvc:annotation-driven />
     <tx:annotation-driven transaction-manager="txManager" />
     
-    <camel:camelContext>
-        <!-- <camel:contextScan/> -->
-        <camel:packageScan>
+    <camel:camelContext id="gwhspringcamelcontext">
+        <!-- used to scan camel context for @component routes-->
+        <camel:contextScan/> 
+
+        <!-- Used to scan for routes not managed by spring. Routes managed by spring @component are not loaded.-->
+        <!-- <camel:packageScan>
             <camel:package>com.pw.routes</camel:package>
             <camel:includes>**.*</camel:includes>
-        </camel:packageScan>
-    </camel:camelContext>    
+        </camel:packageScan> -->
+   </camel:camelContext>    
     
 </beans>
