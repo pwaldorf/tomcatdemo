@@ -3,9 +3,9 @@ package com.pw.routes;
 /*
  *
  *   Loading Routes from Strings with DefaultCamel Context not managed by Spring
- * 
+ *
  *   There should be no camelcontext defined in the spingxml to run this
- * 
+ *
  */
 
 import java.util.ArrayList;
@@ -23,8 +23,8 @@ import org.springframework.context.annotation.Configuration;
 
 //@Configuration
 public class TestRouteDefaultCamelContext {
-    
-    @Bean    
+
+    @Bean
     public CamelContext camelContextConfiguration() throws Exception {
 
         // Example of Routes that can be loaded from a database table
@@ -43,7 +43,7 @@ public class TestRouteDefaultCamelContext {
             .append("<setBody>")
             .append(    "<constant>Test Load Route From Resource2</constant>")
             .append("</setBody>")
-            .append("<log message=\"Body ${body}\" />")                
+            .append("<log message=\"Body ${body}\" />")
             .append("</route>")
             .toString();
 
@@ -53,22 +53,22 @@ public class TestRouteDefaultCamelContext {
         resources.add(ResourceHelper.fromString("newRoute2.xml", resourceRoute2));
 
         // Create camel context
-        CamelContext context = new DefaultCamelContext();                       
-        
+        CamelContext context = new DefaultCamelContext();
+
         // Load routes into camel context
         context.addRoutes(new RouteBuilder() {
 
             @Override
             public void configure() throws Exception {
-                
+
                 context.adapt(ExtendedCamelContext.class).getRoutesLoader().loadRoutes(resources);
             }
-            
+
         });
 
         // Start camel context
-        context.start();        
+        context.start();
         return context;
-        
+
     }
 }
